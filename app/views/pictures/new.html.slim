@@ -1,0 +1,8 @@
+h1 new
+
+= form_with model: @picture, local: true do |form|
+  = form.label "テキスト"
+  = form.text_field :text
+  = form.label "画像"
+  = form.file_field :image
+  = form.submit
