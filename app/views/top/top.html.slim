@@ -1,0 +1,10 @@
+= form_with model: @user, local: true do |form|
+  = form.label "名前"
+  = form.text_field :name
+  = form.label "メールアドレス"
+  = form.text_field :email
+  = form.label "パスワード"
+  = form.password_field :password
+  = form.label "パスワード（確認用）"
+  = form.password_field :password_confirmation
+  = form.submit "登録"
