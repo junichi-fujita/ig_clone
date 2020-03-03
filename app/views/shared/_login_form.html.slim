@@ -1,0 +1,10 @@
+- if flash.alert
+  p 
+    = flash.alert
+
+= form_with scope: :session, url: :session, local: true do |form|
+  = form.label "メールアドレス"
+  = form.text_field :email
+  = form.label "パスワード"
+  = form.password_field :password
+  = form.submit "ログイン"
