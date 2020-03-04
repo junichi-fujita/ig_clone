@@ -19,10 +19,12 @@ class PicturesController < ApplicationController
 
   def create
     @picture = Picture.new(picture_params)
+    @picture.user = current_user
     if params[:back]
       render "top/home"
     else
       if @picture.save
+        IgmailerMailer.contact_mail(@picture.user).deliver
         redirect_to pictures_path, notice: "画僧を投稿しました。"
       else
         render "new"
@@ -45,7 +47,12 @@ class PicturesController < ApplicationController
   end
 
   def picture_params
-    params.require(:picture).permit(:text, :image, :image_cache)
+    params.require(:picture).permit(
+      :text,
+      :image, 
+      :image_cache,
+      :user_id
+      )
   end
 
 end
