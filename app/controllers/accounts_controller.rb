@@ -1,6 +1,10 @@
 class AccountsController < ApplicationController
   before_action :login_required
 
+  def like_pictures
+    @pictures = current_user.voted_pictures.order("votes.created_at DESC")
+  end
+
   def show
     @user = current_user
   end

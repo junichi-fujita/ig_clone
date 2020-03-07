@@ -1,0 +1,14 @@
+h1 お気に入り画像一覧
+
+table.table.mt-5
+  thead.thead-dark
+    tr 
+      th.w-25 投稿画像
+      th 投稿文
+      th 投稿者
+  - @pictures.each do |picture|
+    tbody
+      tr.bg-light
+        td = image_tag(picture.image.url)
+        td = picture.text
+        td = picture.user.name

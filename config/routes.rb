@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   end
   resources :users
   resource :session, only: [:create, :destroy]
-  resource :account, only: [:show, :edit, :update]
+  resource :account, only: [:show, :edit, :update] do
+    get "like_pictures", on: :collection
+  end
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
 end
