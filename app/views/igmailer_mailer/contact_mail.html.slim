@@ -3,7 +3,7 @@ h1 投稿確認
 h4 
   | 投稿者:
   = @contact.user.name
-p 以下の内容で投稿しました。
-
+h4 以下の内容で投稿しました。
+p = @contact.text 
 = image_tag(@contact.image.url)
 

@@ -4,11 +4,13 @@ table.table
   tr
     th 写真
     th 文章
+    th 投稿者
     th 操作
     th
   tr
     td = image_tag @picture.image.url
     td = @picture.text
+    td = @picture.user.name
     td = link_to "編集", edit_picture_path(@picture)
     td = link_to "削除", @picture, method: :delete
 = link_to "index", pictures_path

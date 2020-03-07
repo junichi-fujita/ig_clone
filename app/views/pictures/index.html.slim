@@ -3,5 +3,7 @@ h1 index
   - @pictures.each do |picture|
     .item
       = link_to image_tag(picture.image.url), picture_path(picture)
-
+      p 
+        | 投稿者
+        = link_to @picture.user.name, account_path(@picture)
 = link_to "新規投稿", new_picture_path

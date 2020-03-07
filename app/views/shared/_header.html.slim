@@ -5,3 +5,6 @@ i.far.fa-compass
 i.far.fa-heart
 
 = render "shared/login_form" unless current_user
+
+- if current_user
+  = link_to "ログアウト", :session, method: :delete, data: { confirm: "ログアウトしますか？" }

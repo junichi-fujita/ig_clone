@@ -1,0 +1,10 @@
+h1 ユーザー詳細
+
+= link_to "indexに戻る", :pictures
+
+= @user.name
+= @user.email
+- @user.pictures.each do |picture|
+  = picture.text
+  br
+  = image_tag(picture.image.url)

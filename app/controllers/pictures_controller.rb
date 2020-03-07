@@ -2,7 +2,8 @@ class PicturesController < ApplicationController
   before_action :set_picture, only: [:show, :edit, :destroy]
 
   def index
-    @pictures = Picture.all
+    @pictures = Picture.order(updated_at: :desc)
+    @picture = current_user.pictures.build
   end
 
   def show
@@ -18,8 +19,7 @@ class PicturesController < ApplicationController
   end
 
   def create
-    @picture = Picture.new(picture_params)
-    @picture.user = current_user
+    @picture = current_user.pictures.build(picture_params)
     if params[:back]
       render "top/home"
     else
@@ -37,7 +37,8 @@ class PicturesController < ApplicationController
   end
 
   def destroy
-
+    @picture.destroy
+    redirect_to :pictures, notice: "投稿を削除しました。"
   end
 
   private
