@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     patch "like", "unlike", on: :member
     get "voted", on: :collection
   end
-  resources :users
+  resources :users, only: [:new, :create]
   resource :session, only: [:create, :destroy]
   resource :account, only: [:show, :edit, :update] do
     get "like_pictures", on: :collection
