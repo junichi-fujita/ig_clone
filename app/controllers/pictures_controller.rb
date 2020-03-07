@@ -3,7 +3,7 @@ class PicturesController < ApplicationController
 
   def index
     @pictures = Picture.order(updated_at: :desc)
-    @picture = current_user.pictures.build
+    # @picture = current_user.pictures.build
   end
 
   def show
