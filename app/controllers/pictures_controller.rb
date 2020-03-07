@@ -1,5 +1,5 @@
 class PicturesController < ApplicationController
-  before_action :set_picture, only: [:show, :edit, :destroy, :like]
+  before_action :set_picture, only: [:show, :edit, :update, :destroy, :like]
 
   def index
     @pictures = Picture.order(updated_at: :desc)
@@ -7,7 +7,6 @@ class PicturesController < ApplicationController
   end
 
   def show
-
   end
 
   def new
@@ -15,7 +14,6 @@ class PicturesController < ApplicationController
   end
 
   def edit
-
   end
 
   def create
@@ -25,7 +23,7 @@ class PicturesController < ApplicationController
     else
       if @picture.save
         IgmailerMailer.contact_mail(@picture).deliver
-        redirect_to pictures_path, notice: "画僧を投稿しました。"
+        redirect_to pictures_path, notice: "画像を投稿しました。"
       else
         render "new"
       end
@@ -33,7 +31,12 @@ class PicturesController < ApplicationController
   end
 
   def update
-    
+    @picture.assign_attributes(picture_params)
+    if @picture.save
+      redirect_to @picture, notice: "投稿を更新しました。"
+    else
+      render "edit"
+    end
   end
 
   def destroy

@@ -1,16 +1,17 @@
-h1 show
+
 
 table.table
   tr
-    th 写真
-    th 文章
+    th.w-25 投稿写真
+    th.w-25 投稿文
     th 投稿者
-    th 操作
-    th
+    - if @picture.user == current_user
+      th 操作
+      th
   tr
     td = image_tag @picture.image.url
     td = @picture.text
     td = @picture.user.name
-    td = link_to "編集", edit_picture_path(@picture)
-    td = link_to "削除", @picture, method: :delete
-= link_to "index", pictures_path
+    - if @picture.user == current_user
+      td = link_to "編集", edit_picture_path(@picture)
+      td = link_to "削除", @picture, method: :delete

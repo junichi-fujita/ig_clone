@@ -1,0 +1,10 @@
+.form.mt-5
+  = form_with model: picture, local: true do |form|
+    .form-group
+      = form.label "投稿文:", class: "mr-2"
+      = form.text_field :text
+    .form-group
+      = form.label "投稿画像:", class: "mr-2"
+      = form.file_field :image
+    .form-group
+      = form.submit class: "btn btn-primary mt-3"

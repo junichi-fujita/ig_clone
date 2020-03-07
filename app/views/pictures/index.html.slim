@@ -10,7 +10,6 @@ h1 index
             = picture.user.name
         .col
           - if current_user && current_user.votable_for?(picture)
-            /- binding.pry
             - if (count = picture.votes.count) >= 0
               = link_to [:like, picture], method: :patch do
                 = tag.i class: "far fa-heart"
