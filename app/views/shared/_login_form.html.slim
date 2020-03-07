@@ -1,11 +1,6 @@
-- if flash.alert
-  p 
-    = flash.alert
-
-= form_with scope: :session, url: :session, local: true do |form|
-  = form.label "メールアドレス"
-  = form.text_field :email
-  = form.label "パスワード"
-  = form.password_field :password
-  = form.submit "ログイン"
+#form
+  = form_with scope: :session, url: :session, local: true do |form|
+    = form.text_field :email, placeholder: "メールアドレス", class: "mr-2"
+    = form.password_field :password, placeholder: "パスワード", class: "mr-2"
+    = form.submit "ログイン", class: "btn btn-primary"
 

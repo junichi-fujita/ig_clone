@@ -1,10 +1,16 @@
-h1 ig_clone
-i.fas.fa-home
-i.far.fa-paper-plane
-i.far.fa-compass
-i.far.fa-heart
 
-= render "shared/login_form" unless current_user
+.row.mt-3
+  h1.col-3 ig_clone
 
-- if current_user
-  = link_to "ログアウト", :session, method: :delete, data: { confirm: "ログアウトしますか？" }
+  ul.col-9.nav.justify-content-end.mt-2
+    li.nav-item.mr-2
+      = link_to "ホーム" , :pictures if current_user
+    li.nav-item.mr-3
+      = render "shared/login_form" unless current_user
+    li.nav.item.mr-3
+      = link_to "新規投稿", new_picture_path
+    li.nav-item.mr-3
+      = link_to current_user.name, account_path(@user) if current_user
+    li.nav-item
+      - if current_user
+        = link_to "ログアウト", :session, method: :delete, data: { confirm: "ログアウトしますか？" }

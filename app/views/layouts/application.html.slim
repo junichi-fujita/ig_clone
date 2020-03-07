@@ -8,10 +8,11 @@ html
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
-    .container
-      header
-        = render "shared/header"
-      main
+    header.container
+      = render "shared/header"
+    main
+      .container
         = yield
-      footer
+    footer
+      .container
         = render "shared/footer"
