@@ -1,5 +1,5 @@
 class PicturesController < ApplicationController
-  before_action :set_picture, only: [:show, :edit, :destroy]
+  before_action :set_picture, only: [:show, :edit, :destroy, :like]
 
   def index
     @pictures = Picture.order(updated_at: :desc)
@@ -39,6 +39,16 @@ class PicturesController < ApplicationController
   def destroy
     @picture.destroy
     redirect_to :pictures, notice: "投稿を削除しました。"
+  end
+
+  def like
+    current_user.voted_pictures << @picture
+    redirect_to :pictures
+  end
+
+  def unlike
+    current_user.voted_pictures.destroy(set_picture)
+    redirect_to :pictures
   end
 
   private

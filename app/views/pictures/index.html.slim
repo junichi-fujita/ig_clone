@@ -3,6 +3,20 @@ h1 index
   - @pictures.each do |picture|
     .item
       = link_to image_tag(picture.image.url), picture_path(picture)
-      p 
-        | 投稿者  
-        = picture.user.name
+      .row
+        .col
+          p 
+            | 投稿者  
+            = picture.user.name
+        .col
+          - if current_user && current_user.votable_for?(picture)
+            /- binding.pry
+            - if (count = picture.votes.count) >= 0
+              = link_to [:like, picture], method: :patch do
+                = tag.i class: "far fa-heart"
+              = count if count > 0
+          - elsif current_user
+            - if (count = picture.votes.count) >= 0
+              = link_to [:unlike, picture], method: :patch do
+                = tag.i class: "fas fa-heart"
+              = count if count > 0

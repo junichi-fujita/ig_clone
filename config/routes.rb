@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-  get 'accounts/show'
-  get 'accounts/edit'
   root "tops#top"
-  resources :pictures
+  resources :pictures do
+    patch "like", "unlike", on: :member
+    get "voted", on: :collection
+  end
   resources :users
   resource :session, only: [:create, :destroy]
   resource :account, only: [:show, :edit, :update]
