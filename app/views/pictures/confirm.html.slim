@@ -1,0 +1,22 @@
+h1 
+  = current_user.name
+  | さんの投稿確認
+br
+
+= form_with model: @picture, url: :pictures, local: true do |form|
+  = form.hidden_field :text
+  = form.hidden_field :image_cache
+  table.table
+    tbody
+      tr
+        th 投稿文
+        td = @picture.text
+      tr
+        th 投稿画像
+        td = image_tag @picture.image.url
+  = form.submit "投稿する", class: "btn btn-primary mr-2"
+br
+= form_with model: @picture, url: :new_picture, local: true, method: "get" do |form|
+  = form.hidden_field :text
+  = form.hidden_field :image_cache
+  = form.submit "戻る", name: "back", class: "btn btn-primary"

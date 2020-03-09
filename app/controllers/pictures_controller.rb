@@ -10,7 +10,11 @@ class PicturesController < ApplicationController
   end
 
   def new
-    @picture = Picture.new
+    if params[:back]
+      @picture = current_user.pictures.build(picture_params)
+    else
+      @picture = current_user.pictures.build
+    end
   end
 
   def edit
@@ -19,7 +23,7 @@ class PicturesController < ApplicationController
   def create
     @picture = current_user.pictures.build(picture_params)
     if params[:back]
-      render "top/home"
+      render "new"
     else
       if @picture.save
         IgmailerMailer.contact_mail(@picture).deliver
@@ -42,6 +46,12 @@ class PicturesController < ApplicationController
   def destroy
     @picture.destroy
     redirect_to :pictures, notice: "投稿を削除しました。"
+  end
+
+  def confirm
+    # @pictures = Picture.order(updated_at: :desc)
+    @picture = current_user.pictures.build(picture_params)
+    render "new" if @picture.invalid?
   end
 
   def like

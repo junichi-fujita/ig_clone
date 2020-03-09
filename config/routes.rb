@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root "pictures#new"
   resources :pictures do
+    post "confirm", on: :collection
     patch "like", "unlike", on: :member
     get "voted", on: :collection
   end

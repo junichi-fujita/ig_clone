@@ -1,10 +1,12 @@
 .form.mt-5
-  = form_with model: picture, local: true do |form|
+  = form_with model: picture, scope: :picture, url: choose_new_or_edit, local: true do |form|
     .form-group
       = form.label "投稿文:", class: "mr-2"
       = form.text_field :text
     .form-group
+      = image_tag(@picture.image.url) if @picture.image && @picture.image.url
       = form.label "投稿画像:", class: "mr-2"
       = form.file_field :image
+      = form.hidden_field :image_cache
     .form-group
       = form.submit class: "btn btn-primary mt-3"
