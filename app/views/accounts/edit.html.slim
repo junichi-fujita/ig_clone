@@ -1,2 +1,15 @@
-h1 Accounts#edit
-p Find me in app/views/accounts/edit.html.slim
+h1.pt-3 登録内容の変更
+
+table.table.mt-3
+  = form_with model: @user, scope: :account, url: :account, local: true do |form|
+    tr
+      .form-group
+        th.w-25 = form.label "名前"
+        td = form.text_field :name, size: "30"
+    tr
+      .form-group
+        th = form.label "メールアドレス"
+        td = form.text_field :email, size: "30"
+    tr
+      .form-group
+        = form.submit

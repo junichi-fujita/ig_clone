@@ -10,20 +10,25 @@ class AccountsController < ApplicationController
   end
 
   def edit
+    @user = current_user
+  end
+
+  def update
+    @user = current_user
+    @user.assign_attributes(account_params)
+    if @user.save
+      redirect_to account_path(@user)
+    else
+      render "edit"
+    end
   end
 
   private
 
-  def set_picture
-    @picture = Picture.find(params[:id])
-  end
-
-  def picture_params
-    params.require(:picture).permit(
-      :text,
-      :image, 
-      :image_cache,
-      :user_id
+  def account_params
+    params.require(:account).permit(
+      :name,
+      :email,
       )
   end
 end

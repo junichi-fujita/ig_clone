@@ -1,6 +1,23 @@
-= form_with model: @user, local: true do |form|
-  = form.text_field :name
-  = form.email_field :email
-  = form.password :password
-  = form.password_confirmation
-  = form.submit
+h1.pt-3 新規登録
+
+table.table.mt-3
+  = form_with model: @user, local: true do |form|
+    tr
+      .form-group
+        th.w-25 = form.label "名前"
+        td = form.text_field :name, size: "30"
+    tr
+      .form-group
+        th = form.label "メールアドレス"
+        td = form.text_field :email, size: "30"
+    tr
+      .form-group
+        th = form.label "パスワード"
+        td = form.password_field :password, size: "30"
+    tr
+      .form-group
+        th = form.label "パスワード（確認用）"
+        td = form.password_field :password_confirmation, size: "30"
+    tr
+      .form-group
+        td = form.submit "登録", class: "btn btn-primary"
