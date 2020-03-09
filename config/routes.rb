@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "tops#top"
+  root "pictures#new"
   resources :pictures do
     patch "like", "unlike", on: :member
     get "voted", on: :collection
