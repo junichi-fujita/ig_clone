@@ -2,6 +2,10 @@
 
 h1.pt-3 新規登録
 
+- if flash.notice
+  .alert.alert-success
+    = flash.notice
+    
 table.table.mt-3
   = form_with model: @user, local: true do |form|
     tr
