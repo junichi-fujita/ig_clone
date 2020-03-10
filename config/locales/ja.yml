@@ -1,0 +1,14 @@
+ja:
+  activerecord:
+    models:
+      user:
+      picture:
+    attributes:
+      user:
+        name: ユーザー名
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード（確認用）
+      picture:
+        image: 投稿画像
+        text: 投稿文
