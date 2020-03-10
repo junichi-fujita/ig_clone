@@ -14,4 +14,4 @@ table.table
     td = @picture.user.name
     - if @picture.user == current_user
       td = link_to "編集", edit_picture_path(@picture)
-      td = link_to "削除", @picture, method: :delete
+      td = link_to "削除", @picture, method: :delete, data: { confirm: "本当に削除しますか？" }
