@@ -1,4 +1,8 @@
-.row.mt-3
+- if flash.notice
+  .alert.alert-success
+    = flash.notice
+
+.row.pt-3
   h1.col ユーザー詳細
   ul.col.nav.justify-content-end.mt-2
     li.nav-item.mr-2

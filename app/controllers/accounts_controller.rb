@@ -17,7 +17,7 @@ class AccountsController < ApplicationController
     @user = current_user
     @user.assign_attributes(account_params)
     if @user.save
-      redirect_to account_path(@user)
+      redirect_to account_path(@user), notice: "登録内容を変更しました。"
     else
       render "edit"
     end

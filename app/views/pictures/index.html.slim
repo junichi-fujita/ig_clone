@@ -1,4 +1,7 @@
-h1 index
+- if flash.notice
+  .alert.alert-success
+    = flash.notice
+h1.mb-5.pt-2 投稿画像一覧
 .wrapper.grid
   - @pictures.each do |picture|
     .item
