@@ -5,6 +5,7 @@ ja:
       picture:
     attributes:
       user:
+        new_profile_picture: プロフィール画像
         name: ユーザー名
         email: メールアドレス
         password: パスワード

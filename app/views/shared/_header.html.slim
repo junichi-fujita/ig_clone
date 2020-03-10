@@ -11,6 +11,10 @@
       = link_to "新規投稿", new_picture_path if current_user
     li.nav-item.mr-3
       = link_to current_user.name, account_path(@user) if current_user
+      .prof
+        - if current_user
+          - if current_user.profile_picture.attached?
+            = image_tag current_user.profile_picture.variant(resize: "35x35") 
     li.nav-item
       - if current_user
         = link_to "ログアウト", :session, method: :delete, data: { confirm: "ログアウトしますか？" }

@@ -13,10 +13,14 @@
 table.table.mt-5
   thead.thead-dark
     tr
+      th プロフィール画像
       th.w-50 ユーザー名
       th メールアドレス
   tbody
     tr.bg-light
+      td 
+        - if @user.profile_picture.attached?
+          = image_tag @user.profile_picture.variant(resize: "128x128")
       td = @user.name
       td = @user.email
 

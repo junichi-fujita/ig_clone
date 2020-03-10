@@ -4,6 +4,10 @@ table.table.mt-3
   = form_with model: @user, scope: :account, url: :account, local: true do |form|
     tr
       .form-group
+        th.w-25 = form.label "プロフィール画像"
+        td = form.file_field :new_profile_picture, size: "30"
+    tr
+      .form-group
         th.w-25 = form.label "名前"
         td = form.text_field :name, size: "30"
     tr

@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   class LoginRequired < StandardError; end
   class Forbidden < StandardError; end
 
+
   private
 
   def current_user

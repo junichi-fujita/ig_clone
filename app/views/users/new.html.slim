@@ -12,6 +12,10 @@ table.table.mt-3
       .form-group
         th = form.label "メールアドレス"
         td = form.text_field :email, size: "30"
+      tr
+      .form-group
+        th = form.label "プロフィール画像"
+        td = form.file_field :new_profile_picture
     tr
       .form-group
         th = form.label "パスワード"
