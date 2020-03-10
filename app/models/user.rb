@@ -17,6 +17,10 @@ class User < ApplicationRecord
   has_many :votes, dependent: :destroy
   has_many :voted_pictures, through: :votes, source: :picture
 
+  validates :name, presence: true
+  validates :email, presence: true, 'valid_email_2/email': true
+  
+
   def votable_for?(picture)
     picture && picture.user != self && !votes.exists?(picture_id: picture.id)
   end

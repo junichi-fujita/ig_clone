@@ -1,3 +1,5 @@
+= render "shared/errors", obj: @picture
+
 .form.mt-5
   = form_with model: picture, scope: :picture, url: choose_new_or_edit, local: true do |form|
     .form-group

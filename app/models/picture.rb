@@ -24,4 +24,7 @@ class Picture < ApplicationRecord
   belongs_to :user
   has_many :votes, dependent: :destroy
   has_many :contributors, through: :votes, source: :user
+
+  validates :image, presence: true
+  validates :text, length: { in: 1..140 }
 end
