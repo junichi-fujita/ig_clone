@@ -26,7 +26,7 @@ class PicturesController < ApplicationController
       render "new"
     else
       if @picture.save
-        IgmailerMailer.contact_mail(@picture).deliver
+        # IgmailerMailer.contact_mail(@picture).deliver
         redirect_to pictures_path, notice: "画像を投稿しました。"
       else
         render "new"
@@ -49,7 +49,6 @@ class PicturesController < ApplicationController
   end
 
   def confirm
-    # @pictures = Picture.order(updated_at: :desc)
     @picture = current_user.pictures.build(picture_params)
     render "new" if @picture.invalid?
   end
