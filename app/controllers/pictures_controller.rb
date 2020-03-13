@@ -26,7 +26,7 @@ class PicturesController < ApplicationController
       render "new"
     else
       if @picture.save
-        IgmailerMailer.contact_mail(@picture).deliver
+        IgmailerMailer.contact_mail(@picture).deliver_now
         redirect_to pictures_path, notice: "画像を投稿しました。"
       else
         render "new"
