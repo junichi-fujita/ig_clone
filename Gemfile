@@ -30,6 +30,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'pry-byebug'
   gem 'rails-flog', require: 'flog' #ログを見やすくするために追加
+  gem 'dotenv-rails'
 end
 
 group :development do
