@@ -18,6 +18,9 @@ class PicturesController < ApplicationController
   end
 
   def edit
+    unless current_user == @picture.user
+      redirect_to :pictures
+    end
   end
 
   def create
