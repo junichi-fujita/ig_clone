@@ -65,7 +65,7 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
   config.action_mailer.delivery_method = :smtp
-  # config.action_mailer.perform_deliveries = true
+  config.action_mailer.perform_deliveries = true
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
@@ -103,7 +103,7 @@ Rails.application.configure do
     port: 587,
     authentication: :plain,
     enable_starttls_auto: true,
-    user_name: Rails.application.credentials.gmail[:mail_address],
-    password: Rails.application.credentials.gmail[:app_password]
+    user_name: ENV["GMAIL_USERNAME"],
+    passowrd: ENV["GMAIL_PASSWORD"],
   }
 end
