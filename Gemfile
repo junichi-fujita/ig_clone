@@ -8,8 +8,8 @@ gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
 
 # Front
-gem 'slim-rails'
-gem 'html2slim'
+gem 'slim-rails' #slimを使うために追加
+gem 'html2slim' #slimを使うために追加
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'sass-rails', '~> 5.0'
@@ -23,12 +23,12 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', '>= 1.1.0', require: false
-gem 'valid_email2'
+gem 'valid_email2' #emailのvalidationのために追加
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'pry-byebug'
-  gem 'rails-flog', require: 'flog'
+  gem 'rails-flog', require: 'flog' #ログを見やすくするために追加
 end
 
 group :development do
@@ -37,7 +37,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'letter_opener_web'
-  gem 'annotate'
+  gem 'annotate' #tableの属性を確認しやすくするために追加
   gem 'better_errors'
   gem 'binding_of_caller'
 end
