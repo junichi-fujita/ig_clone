@@ -4,10 +4,11 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:session][:email])
     if user&.authenticate(params[:session][:password])
       session[:user_id] = user.id
+      redirect_to :pictures
     else
       flash.alert = "名前とパスワードが一致しません。"
+      redirect_to :root
     end
-    redirect_to :root
   end
 
   def destroy
