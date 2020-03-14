@@ -10,23 +10,23 @@ table.table.mt-3
   = form_with model: @user, local: true do |form|
     tr
       .form-group
-        th.w-25 = form.label "名前"
+        th.w-25 = form.label :name
         td = form.text_field :name, size: "30"
     tr
       .form-group
-        th = form.label "メールアドレス"
+        th = form.label :email
         td = form.text_field :email, size: "30"
       tr
       .form-group
-        th = form.label "プロフィール画像"
+        th = form.label :new_profile_picture
         td = form.file_field :new_profile_picture
     tr
       .form-group
-        th = form.label "パスワード"
+        th = form.label :password
         td = form.password_field :password, size: "30"
     tr
       .form-group
-        th = form.label "パスワード（確認用）"
+        th = form.label :password_confirmation
         td = form.password_field :password_confirmation, size: "30"
     tr
       .form-group
