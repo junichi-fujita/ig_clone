@@ -3,9 +3,8 @@ class IgmailerMailer < ApplicationMailer
     @contact = contact
     mail(
       subject: "確認用メール",
-      to: "fujita_19740909_j@yahoo.co.jp",
+      to: @contact.user.email,
       from: "text@example.com"
     )
-    # mail to: "fujita_19740909_j@yahoo.co.jp", subject: "確認用メール"
   end
 end
