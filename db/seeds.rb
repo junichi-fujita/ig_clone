@@ -1,5 +1,5 @@
 if Rails.env == "development"
-  ５0.times do |i|
+  50.times do |i|
     User.create!(
       name: "test#{i + 1}", 
       email: "test#{i + 1}@test.com", 
