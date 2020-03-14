@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     else
       flash.alert = "名前とパスワードが一致しません。"
     end
-    redirect_to :pictures
+    redirect_to :root
   end
 
   def destroy
