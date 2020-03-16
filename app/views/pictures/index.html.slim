@@ -13,12 +13,12 @@ h1.mb-5.pt-2 投稿画像一覧
             = picture.user.name
         .col
           - if current_user && current_user.votable_for?(picture)
-            - if (count = picture.votes.count) >= 0
-              = link_to [:like, picture], method: :patch do
-                = tag.i class: "far fa-heart"
-              = count if count > 0
+            - count = picture.votes.count
+            = link_to [:like, picture], method: :patch do
+              = tag.i class: "far fa-heart"
+            = count if count > 0
           - elsif current_user
-            - if (count = picture.votes.count) >= 0
-              = link_to [:unlike, picture], method: :patch do
-                = tag.i class: "fas fa-heart"
-              = count if count > 0
+            - count = picture.votes.count
+            = link_to [:unlike, picture], method: :patch do
+              = tag.i class: "fas fa-heart"
+            = count if count > 0

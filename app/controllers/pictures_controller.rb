@@ -1,6 +1,6 @@
 class PicturesController < ApplicationController
   before_action :login_required
-  before_action :set_picture, only: [:show, :edit, :update, :destroy, :like]
+  before_action :set_picture, only: [:show, :edit, :update, :destroy, :like, :unlike]
 
   def index
     @pictures = Picture.order(updated_at: :desc)
@@ -62,7 +62,7 @@ class PicturesController < ApplicationController
   end
 
   def unlike
-    current_user.voted_pictures.destroy(set_picture)
+    current_user.voted_pictures.destroy(@picture)
     redirect_to :pictures
   end
 
@@ -80,5 +80,4 @@ class PicturesController < ApplicationController
       :user_id
       )
   end
-
 end
